@@ -22,6 +22,8 @@ Mysql:port = 3306
 Mysql:password = 'MYSQL_PASSWORD'
 ```
 
+Create Database using [DDL Script](database_schema.sql).
+
 ## Web Server Routes
 
 - `/api/ig/sync`: Route redirecting to Instagram API authorization window with defined scopes `user_profile,user_media`.
