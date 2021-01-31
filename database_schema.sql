@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `media` (
                                        `ig_id` varchar(50) NOT NULL,
                                        `media_type` varchar(50) NOT NULL,
                                        `media_url` text NOT NULL,
+                                       `thumbnail_url` text NOT NULL,
                                        `permalink` varchar(255) NOT NULL,
                                        `timestamp` varchar(50) NOT NULL,
                                        `created_at` int(11) NOT NULL,

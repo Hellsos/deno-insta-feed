@@ -138,9 +138,10 @@ const instaFeedDatabase = async () => {
 				] );
 			if ( row[ 0 ] ) {
 				await DatabaseProvider.update(
-					"UPDATE media SET media_type = ?, media_url = ?, permalink = ?, timestamp = ?, updated_at = ? WHERE ig_id = ? AND deleted_at IS NULL", [
+					"UPDATE media SET media_type = ?, media_url = ?, thumbnail_url=?, permalink = ?, timestamp = ?, updated_at = ? WHERE ig_id = ? AND deleted_at IS NULL", [
 						item.media_type,
 						item.media_url,
+						item.thumbnail_url,
 						item.permalink,
 						item.timestamp,
 						DateHelper.getTimestamp(),
@@ -148,11 +149,12 @@ const instaFeedDatabase = async () => {
 					] );
 			} else {
 				await DatabaseProvider.insert(
-					"INSERT INTO media (credentials_id, ig_id, media_type, media_url, permalink, timestamp, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [
+					"INSERT INTO media (credentials_id, ig_id, media_type, media_url, thumbnail_url, permalink, timestamp, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [
 						credentialsId,
 						item.id,
 						item.media_type,
 						item.media_url,
+						item.thumbnail_url,
 						item.permalink,
 						item.timestamp,
 						DateHelper.getTimestamp(),
