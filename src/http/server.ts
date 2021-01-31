@@ -1,4 +1,4 @@
-import { Application, IContext, Router } from "../deps.ts";
+import { Application, IContext, oakCors, Router } from "../deps.ts";
 import { env } from "../shared/providers/env.provider.ts";
 import { syncController } from "./controllers/sync.controller.ts";
 import { authController } from "./controllers/auth.controller.ts";
@@ -29,6 +29,8 @@ router.get( "/api/ig/auth", authController );
 router.get( "/api/ig/user/:userId", detailController );
 
 router.get( "/api/ig/user/:userId/profile", profileController );
+
+app.use( oakCors( { origin : "*" } ) );
 
 app.use( router.routes() );
 app.use( router.allowedMethods() );
