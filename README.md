@@ -1,6 +1,6 @@
 # Instagram User Media Feed
 
-Instagram User Media Feed API written in [Deno](https://deno.land).
+Instagram User Media Feed API using [Deno](https://deno.land) TypeScript Runtime.
 
 Application has **Web Server** and **Import** executables.
 
