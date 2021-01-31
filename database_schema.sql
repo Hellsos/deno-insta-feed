@@ -15,6 +15,21 @@
 CREATE DATABASE IF NOT EXISTS `insta_feed` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 USE `insta_feed`;
 
+
+-- Dumping structure for table insta_feed.credentials
+DROP TABLE IF EXISTS `credentials`;
+CREATE TABLE IF NOT EXISTS `credentials` (
+                                             `id` int(11) NOT NULL AUTO_INCREMENT,
+                                             `user_id` varchar(50) NOT NULL,
+                                             `created_at` int(11) NOT NULL,
+                                             `updated_at` int(11) NOT NULL,
+                                             `deleted_at` int(11) DEFAULT NULL,
+                                             PRIMARY KEY (`id`),
+                                             UNIQUE KEY `user_id_deleted_at` (`user_id`,`deleted_at`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+-- Data exporting was unselected.
+
 -- Dumping structure for table insta_feed.access_token
 DROP TABLE IF EXISTS `access_token`;
 CREATE TABLE IF NOT EXISTS `access_token` (
@@ -28,20 +43,6 @@ CREATE TABLE IF NOT EXISTS `access_token` (
                                               PRIMARY KEY (`id`),
                                               KEY `FK_access_token_credentials` (`credentials_id`),
                                               CONSTRAINT `FK_access_token_credentials` FOREIGN KEY (`credentials_id`) REFERENCES `credentials` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
-
--- Data exporting was unselected.
-
--- Dumping structure for table insta_feed.credentials
-DROP TABLE IF EXISTS `credentials`;
-CREATE TABLE IF NOT EXISTS `credentials` (
-                                             `id` int(11) NOT NULL AUTO_INCREMENT,
-                                             `user_id` varchar(50) NOT NULL,
-                                             `created_at` int(11) NOT NULL,
-                                             `updated_at` int(11) NOT NULL,
-                                             `deleted_at` int(11) DEFAULT NULL,
-                                             PRIMARY KEY (`id`),
-                                             UNIQUE KEY `user_id_deleted_at` (`user_id`,`deleted_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
