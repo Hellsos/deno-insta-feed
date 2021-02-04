@@ -149,7 +149,7 @@ const instaFeedDatabase = async () => {
 					] );
 			} else {
 				await DatabaseProvider.insert(
-					"INSERT INTO media (credentials_id, ig_id, media_type, media_url, thumbnail_url, permalink, timestamp, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [
+					"INSERT INTO media (credentials_id, ig_id, media_type, media_url, thumbnail_url, permalink, timestamp, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", [
 						credentialsId,
 						item.id,
 						item.media_type,
